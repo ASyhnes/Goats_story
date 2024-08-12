@@ -11,11 +11,11 @@ puts "Cleaning DB..."
 # User.destroy_all
 # Goat.destroy_all
 
-User.create(email: "john@mail.com", password: "password", first_name: "John", last_name: "Doe")
-User.create(email: "alexis@heroku.com", password: "password", first_name: "Alexis", last_name: "Bou")
-User.create(email: "henry@free.fr", password: "password", first_name: "Henry", last_name: "Quatre")
-User.create(email: "hotchocolate@hotmail.com", password: "password", first_name: "Doudou", last_name: "Soirée")
-User.create(email: "chuckdu44@gmail.com", password: "password", first_name: "Chuck", last_name: "Norris")
+User.create(email: "john@mail.com", password: "password", first_name: "John", last_name: "Doe", address: "5 rue du puy, 44000 nantes")
+User.create(email: "alexis@heroku.com", password: "password", first_name: "Alexis", last_name: "Bou", address: "127 rue princpale, 75000 paris")
+User.create(email: "henry@free.fr", password: "password", first_name: "Henry", last_name: "Quatre", address: "5 rue du sable, 49100 Saumur")
+User.create(email: "hotchocolate@hotmail.com", password: "password", first_name: "Doudou", last_name: "Soirée", address: "13 rue du sorcier, 44300 nantes")
+User.create(email: "chuckdu44@gmail.com", password: "password", first_name: "Chuck", last_name: "Norris", address: "11 rue du puygarniers, 49000 Angers")
 
 puts "Created #{User.all.length} Users"
 
