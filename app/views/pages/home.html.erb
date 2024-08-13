@@ -7,25 +7,24 @@
   </div>
 
   <div class="cards">
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
+    <div class="row">
+      <% @goats.each do |goat| %>
+        <div class="col-md-4 mb-4">
+          <div class="card" style="width: 22rem;">
+            <% if goat.photos.any? %>
+              <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <img class="card-img-top" src="default_image.jpg" alt="Default image">
+            <% end %>
+            <div class="card-body">
+              <h3 class="card-title"><%= goat.name %></h3>
+              <p class="card-text"><%= goat.race %></p>
+              <p class="card-text owner-text">Propriétaire de la chèvre : <%= goat.user.first_name %></p>
+              <%= link_to "Affiche cette chèvre", goat, class: "template-button" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
