@@ -2,8 +2,11 @@
   <h2>Votre chèvre est : <%= @goat.name %></h2>
   <p>Espèce de la chèvre : <%= @goat.race  %></p>
   <p>Détails : <%= @goat.description %></p>
-  <%# <p><%= @goat.photo </p> %>
-  <p>Propriétaire de la chèvre : <%= @goat.user[:id] %>
+  <% @goat.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill  %>
+  <% end %>
+  <p>Propriétaire de la chèvre : <%= @goat.user.first_name %>
   <hr>
   <%= link_to "Revenir à la liste", goats_path %>
+  <%= link_to "Modifier la chèvre", edit_goat_path %>
 </div>
