@@ -7,8 +7,11 @@
   <h2>Description:</h2>
   <p><%= current_user.description%></p>
   <hr>
+  <div>
+    <%= link_to "Proposer une chévre", locations_url, class: "btn btn-primary" %>
+    <%# verifier l'url ci dessus pour le renvois vers location %>
+    <%= link_to "Mes p'tites chévres", goats_path, class: "btn btn-primary" %>
+  </div>
 </div>
-<%# bouton "edit my profil" %>
 
-<%# ajouter une chevre %>
-<%# afficher les chevres %>
+
