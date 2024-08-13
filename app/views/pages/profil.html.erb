@@ -1,9 +1,13 @@
-<h1>votre profil: <br> <strong><%= current_user.first_name%> <%= current_user.last_name%></strong></h1>
-
-
-
-<%# adress %>
-<%# description %>
+<div class="container">
+  <h1>votre profil: <br>     <strong><%= current_user.first_name%> <%= current_user.last_name%></strong></h1>
+  <hr>
+  <h2>Adresse:</h2>
+  <p><%= current_user.address%></p>
+  <hr>
+  <h2>Description:</h2>
+  <p><%= current_user.description%></p>
+  <hr>
+</div>
 <%# bouton "edit my profil" %>
 
 <%# ajouter une chevre %>
