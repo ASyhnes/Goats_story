@@ -4,4 +4,5 @@ class Goat < ApplicationRecord
   validates :race, presence: true
   validates :description, presence: true, length: { minumum:10, maximum:500 }
   # validates :photo, presence: true
+  has_many_attached :photos
 end

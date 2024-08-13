@@ -7,13 +7,4 @@ class PagesController < ApplicationController
   def profil
     @user = profil_path(current_user)
   end
-
-  def edit_profil
-    @user = profil_path_edit(current_user)
-  end
-
-  def show_all
-    # methode a definir (thais)
-  end
-
 end

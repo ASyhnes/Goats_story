@@ -1,0 +1,11 @@
+<%= simple_form_for(@goat) do |f| %>
+  <!-- [...] -->
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <!-- [...] -->
+  <%= f.input :name %>
+  <%= f.input :race %>
+  <%= f.input :description %>
+  <div class="form-actions">
+    <%= f.button :submit, "Edit" %>
+  </div>
+<% end %>

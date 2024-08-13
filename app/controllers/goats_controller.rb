@@ -5,4 +5,12 @@ class GoatsController < ApplicationController
   # def show
   #   @goat = Goat.find(params[:id])
   # end
+
+  def edit
+    @goat = Goat.find(params[:id])
+  end
+
+  def goat_params
+    params.require(:goat).permit(:name, :race,  :description, photos: [])
+  end
 end
