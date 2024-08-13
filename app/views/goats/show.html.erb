@@ -1,7 +1,9 @@
 <div class="container">
-  <h2>Your Fuckin' Goat is <%= @goat.name %></h2>
-  <p>Species : <%= @goat.race  %></p>
-  <p>Details : <%= @goat.description %></p>
+  <h2>Votre chèvre est : <%= @goat.name %></h2>
+  <p>Espèce de la chèvre : <%= @goat.race  %></p>
+  <p>Détails : <%= @goat.description %></p>
   <%# <p><%= @goat.photo </p> %>
-  <p>Goat's Owner : <%= @goat.user[:id] %>
+  <p>Propriétaire de la chèvre : <%= @goat.user[:id] %>
+  <hr>
+  <%= link_to "Revenir à la liste", goats_path %>
 </div>
