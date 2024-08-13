@@ -1,13 +1,13 @@
-<h1>goats</h1>
-  <div>
-  <ul>
+<h1 class="display-4 text-center my-4">Chèvre</h1>
+<div class="container">
+  <ul class="list-group">
     <% @goats.each do |goat| %>
-    <li>
-     <p> <%= goat.name %> </p>
-     <p><%= goat.race %></p>
-     <p><%= goat.description %></p>
-     <%= link_to "Show this goat", goat %>
+      <li class="list-group-item">
+        <h5 class="mb-1"><%= goat.name %></h5>
+        <p class="mb-1"><%= goat.race %></p>
+        <p class="mb-1"><%= goat.description %></p>
+        <%= link_to "Affiche cette chèvre", goat, class: "btn btn-primary" %>
       </li>
     <% end %>
-    </ul>
-  </div>
+  </ul>
+</div>
