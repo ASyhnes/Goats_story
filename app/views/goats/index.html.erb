@@ -5,9 +5,12 @@
       <li class="list-group-item">
         <h5 class="mb-1"><%= goat.name %></h5>
         <p class="mb-1"><%= goat.race %></p>
-        <p class="mb-1"><%= goat.description %></p>
-        <%= link_to "Affiche cette chèvre", goat, class: "btn btn-primary" %>
+        <% goat.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill  %>
+        <% end %>
+      <p>Propriétaire de la chèvre : <%= goat.user.first_name %>
       </li>
-    <% end %>
+         <%= link_to "Affiche cette chèvre", goat, class: "btn btn-primary" %>
+     <% end %>
   </ul>
 </div>
