@@ -1,0 +1,10 @@
+<div class="form-control mb-3">
+  <h1>Demande de location </h1>
+  <%= simple_form_for [@goat, @location] do |f| %>
+    <%= f.input :details, label: 'Commentaires'%>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit 'Ajouter' %>
+    <%# <%= link_to "Retour au profil", profil_path %>
+  <% end %>
+</div>

@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :goats
-  resources :locations
+  resources :goats do
+    resources :locations, only: [:new, :create]
+  end
 
   #route for show pagecontrollerprofil
   get "/profil", to: "pages#profil", as: 'profil'
   # patch "/profil/editprofil", to: "pages#edit_profil", as:'editprofil'
-  
+
 end
