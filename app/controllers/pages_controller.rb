@@ -11,5 +11,4 @@ class PagesController < ApplicationController
   def edit_profil
     @user = profil_path_edit(current_user)
   end
-
 end
