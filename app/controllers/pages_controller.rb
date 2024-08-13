@@ -12,8 +12,4 @@ class PagesController < ApplicationController
     @user = profil_path_edit(current_user)
   end
 
-  def show_all
-    # methode a definir (thais)
-  end
-
 end
