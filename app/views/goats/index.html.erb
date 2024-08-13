@@ -1,0 +1,13 @@
+<h1>goats</h1>
+  <div>
+  <ul>
+    <% @goats.each do |goat| %>
+    <li>
+     <p> <%= goat.name %> </p>
+     <p><%= goat.race %></p>
+     <p><%= goat.description %></p>
+     <%= link_to "Show this goat", goat %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
