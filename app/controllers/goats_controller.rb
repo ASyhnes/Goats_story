@@ -1,4 +1,12 @@
 class GoatsController < ApplicationController
+  def index
+    @goats = Goat.all
+  end
+  
+  def show
+    @goat = Goat.find(params[:id])
+  end
+  
   def new
     @goat = Goat.new
   end
@@ -20,9 +28,6 @@ class GoatsController < ApplicationController
   def goat_params
     params.require(:goat).permit(:name, :race, :description, photos: [])
   end
-
-
-  def show
-    @goat = Goat.find(params[:id])
-  end
-end
+=======
+  
+ 
