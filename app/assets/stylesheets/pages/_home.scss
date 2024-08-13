@@ -36,7 +36,12 @@ label {
   background-color: #F2F2F2;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 5% 0;
   padding: 20px;
+  width: 100%;
+}
+
+.owner-text {
+  min-height: 50px;
 }

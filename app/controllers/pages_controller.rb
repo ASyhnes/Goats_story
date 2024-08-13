@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
+    @goats = Goat.all.sample(3)
   end
 
   def profil
