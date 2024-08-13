@@ -1,0 +1,12 @@
+<div class="form-control mb-3">
+  <h1>Ajoute une nouvelle chêvre </h1>
+  <%= simple_form_for(@goat) do |f| %>
+    <%= f.input :name, label: 'Nom de la biquette'%>
+    <%= f.input :race %>
+    <%= f.input :description %>
+    <%# <%= f.input :photo, as: :file %> 
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit 'Ajouter' %>
+    <%# <%= link_to "Retour au profil", profil_path %>
+  <% end %>
+</div>
