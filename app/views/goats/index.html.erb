@@ -1,16 +1,22 @@
 <h1 class="display-4 text-center my-4">Chèvre</h1>
 <div class="container">
-  <ul class="list-group">
+  <div class="row">
     <% @goats.each do |goat| %>
-      <li class="list-group-item">
-        <h5 class="mb-1"><%= goat.name %></h5>
-        <p class="mb-1"><%= goat.race %></p>
-        <% goat.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill  %>
-        <% end %>
-      <p>Propriétaire de la chèvre : <%= goat.user.first_name %>
-      </li>
-         <%= link_to "Affiche cette chèvre", goat, class: "btn btn-primary" %>
-     <% end %>
-  </ul>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="width: 18rem;">
+          <% if goat.photos.any? %>
+            <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <img class="card-img-top" src="default_image.jpg" alt="Default image">
+          <% end %>
+          <div class="card-body">
+            <h3 class="card-title"><%= goat.name %></h3>
+            <p class="card-text"><%= goat.race %></p>
+            <p class="card-text">Propriétaire de la chèvre : <%= goat.user.first_name %></p>
+            <%= link_to "Affiche cette chèvre", goat, class: "template-button" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
