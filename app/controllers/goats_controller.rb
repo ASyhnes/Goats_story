@@ -1,6 +1,8 @@
 class GoatsController < ApplicationController
-
-  def show
-    @goat = Goat.find(params[:id])
+  def index
+    @goats = Goat.all
   end
+  # def show
+  #   @goat = Goat.find(params[:id])
+  # end
 end
