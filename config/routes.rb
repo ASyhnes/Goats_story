@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :goats
   resources :locations
+
+  #route for show pagecontrollerprofil
+  get "/profil", to: "pages#profil", as: 'profil'
 end
