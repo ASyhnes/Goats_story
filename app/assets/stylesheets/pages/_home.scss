@@ -1,5 +1,41 @@
 // Specific CSS for your home-page
+body{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #F2F2F2;
+  color: #402D22;
+}
+
 .container {
   background-color: #F2F2F2;
+  color: #402D22;
   max-height: max-content;
+}
+
+.banner {
+  padding: 1em;
+  text-align: center;
+}
+
+label {
+  display: block;
+  font:
+    1rem 'Fira Sans',
+    sans-serif;
+}
+
+input,
+label {
+  margin: 0.4rem 0;
+  width: 300px;
+}
+
+.cards {
+  color: #402D22;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5% 0;
+  padding: 20px;
 }
