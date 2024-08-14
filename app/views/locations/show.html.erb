@@ -1,9 +1,15 @@
 <div class="container">
   <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <% current_user.goats.each do |goat| %>
+    <% if goat.photos.any? %>
+          <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <img class="card-img-top" src="default_image.jpg" alt="Default image">
+        <% end %>
     <div class="card-product-infos">
-      <h2>Product name</h2>
+      <%= location.start_date %>
       <p>Product description with <strong>relevant info</strong> only.</p>
     </div>
+    <% end %>
   </div>
 </div>
