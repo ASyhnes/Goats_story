@@ -1,0 +1,34 @@
+<h1>location</h1>
+
+<h2>Nos chèvres a valider</h2>
+<br>
+
+<ul>
+  <%# prevoir si current_used_signe %>
+  <% current_user.goats.each do |goat| %>
+    <% goat.locations.each do |loc| %>
+      <li>
+        <%= loc.start_date%>
+        <br>
+        <%= loc.end_date%>
+        <br>
+        <%= loc.user.first_name%>
+        <br>
+        <%= loc.goat.name%>
+        <br>
+        <%= loc.details%>
+        <br>
+        a venir: status: valider? refuser?
+        <br>
+      </li>
+      <br>
+    <% end %>
+  <% end %>
+</ul>
+
+
+
+<br>
+<h2>location en tant que utilisateurs</h2>
+<br>
+

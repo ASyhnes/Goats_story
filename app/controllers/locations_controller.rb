@@ -19,12 +19,16 @@ class LocationsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
     # render "lists/show"
+    # changer status en pending
   end
 
   def destroy
     @location = Location.find(params[:id])
     @location.destroy
     redirect_to location_path(@location.user), status: :see_other
+  end
+
+  def index
   end
 
 private
