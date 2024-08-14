@@ -3,6 +3,7 @@
 </div>
 
 <div class="form">
+
   <%= simple_form_for [@goat, @location] do |f| %>
    <div class="form-inputs">
       <%= f.input :details, label: 'Commentaires'%>
@@ -18,6 +19,6 @@
       <%= f.button :submit, 'Ajouter', class:"form-actions" %>
       <%# <%= link_to "Retour au profil", profil_path %>
     </div>
-
   <% end %>
+
 </div>
