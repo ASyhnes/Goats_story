@@ -21,6 +21,12 @@ class LocationsController < ApplicationController
     # render "lists/show"
   end
 
+  def update
+    @location = Location.find(params[:id])
+    @location.status = "Validate"
+    @location.save!
+  end
+
   def destroy
     @location = Location.find(params[:id])
     @location.destroy
@@ -29,8 +35,8 @@ class LocationsController < ApplicationController
 
 private
 
-def location_params
-  params.require(:location).permit(:details, :start_date, :end_date)
+  def location_params
+    params.require(:location).permit(:details, :start_date, :end_date)
 
-end
+  end
 end
