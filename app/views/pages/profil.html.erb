@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>votre profil: <br>     <strong><%= current_user.first_name%> <%= current_user.last_name%></strong></h1>
+  <hr>
+  <h2>Adresse: prevoir carte</h2>
+  <p><%= current_user.address%></p>
+  <hr>
+  <h2>Description:</h2>
+  <p><%= current_user.description%></p>
+  <hr>
+  <div>
+    <%= link_to "Proposer une chèvre", new_goat_path, class: "template-button" %>
+    <%= link_to "Mes p'tites chèvres", goats_path, class: "template-button" %>
+  </div>
+</div>

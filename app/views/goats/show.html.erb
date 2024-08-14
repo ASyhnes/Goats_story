@@ -1,0 +1,23 @@
+<div class="container mt-3">
+  <div class="banner text-center mb-5">
+    <h2>Votre chèvre est : <strong><%= @goat.name %></strong></h2>
+  </div>
+
+    <div class="row mb-5">
+      <div class="col-md-6">
+          <p class='mt-3 text-center'><strong>Espèce de la chèvre :</strong> <%= @goat.race  %></p>
+          <p class='mt-3 text-center'><strong>Détails :</strong> <%= @goat.description %></p>
+          <p class='mt-3 text-center'><strong>Propriétaire de la chèvre :</strong> <%= @goat.user.first_name %></p>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-center">
+          <% @goat.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill  %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <hr>
+  <%= link_to "Revenir à la liste", goats_path, class: "template-button" %>
+  <%= link_to "Modifier la chèvre", edit_goat_path, class: "template-button" %>
+</div>
