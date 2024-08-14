@@ -19,7 +19,7 @@
     </div>
   <hr>
   <%= link_to "Revenir à la liste", goats_path, class: "template-button" %>
-  <%# <%= link_to "Modifier la chèvre", edit_goat_path, class: "template-button" %>
+  <%= link_to "Faire une demande une location", new_goat_location_path(@goat), class: "template-button" %>
   <% if @goat.user == current_user %>
     <%= link_to "Modifier la chèvre", edit_goat_path, class: "template-button" %>
   <% end %>
