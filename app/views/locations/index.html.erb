@@ -4,26 +4,26 @@
 <br>
 
 <ul>
-  <%# prevoir si current_used_signe %>
-  <% current_user.goats.each do |goat| %>
-    <% goat.locations.each do |loc| %>
-      <li>
-        <%= loc.start_date%>
-        <br>
-        <%= loc.end_date%>
-        <br>
-        <%= loc.user.first_name%>
-        <br>
-        <%= loc.goat.name%>
-        <br>
-        <%= loc.details%>
-        <br>
-        a venir: status: valider? refuser?
-        <br>
-      </li>
-      <br>
+ <div class="container mt-5">
+  <div class="row">
+    <% current_user.goats.each do |goat| %>
+      <% goat.locations.each do |loc| %>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Location pour <strong><%= loc.goat.name %></strong></h5>
+              <p class="card-text"><strong>Loueur :</strong> <%= loc.user.first_name %></p>
+              <p class="card-text"><strong>Début :</strong> <%= loc.start_date %></p>
+              <p class="card-text"><strong>Fin :</strong> <%= loc.end_date %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+</div>
+
+
 </ul>
 
 
@@ -32,4 +32,23 @@
 <h2>location en tant que utilisateurs</h2>
 <br>
 
+<ul>
+ <div class="container mt-5">
+  <div class="row">
+    <% current_user.locations.each do |location| %>
+      <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">demande de location a: <strong><%= location.goat.user.first_name %></strong></h5>
+              <p class="card-text"><strong>Début :</strong> <%= location.start_date %></p>
+              <p class="card-text"><strong>Fin :</strong> <%= location.end_date %></p>
+              <p class="card-text"><strong>détails :</strong> <%= location.details %></p>
+              <p class="card-text"><strong>Status : décommenter plus tard</strong> </p>
+              <%# <%= location.status %>
 
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

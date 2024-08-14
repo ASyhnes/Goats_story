@@ -21,10 +21,14 @@ class LocationsController < ApplicationController
     # render "lists/show"
   end
 
+
   def update
     @location = Location.find(params[:id])
     @location.status = "Validate"
     @location.save!
+  end
+
+  def show
   end
 
   def destroy
