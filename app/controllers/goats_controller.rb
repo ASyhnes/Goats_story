@@ -27,6 +27,12 @@ class GoatsController < ApplicationController
     end
   end
 
+  def destroy
+    @goat = Goat.find(params[:id])
+    @goat.destroy
+    redirect_to profil_path, status: :see_other
+  end
+
   private
 
   def goat_params
