@@ -14,11 +14,15 @@ class LocationsController < ApplicationController
     @goat = Goat.find(params[:goat_id])
     @location.goat = @goat
     if @location.save
-      redirect_to goats_path, notice: 'Votre demande de location a bien été prise en compte'
+      redirect_to locations_path, notice: 'Votre demande de location a bien été prise en compte'
     else
       render :new, status: :unprocessable_entity
     end
     # render "lists/show"
+  end
+
+  def show
+  
   end
 
   def destroy

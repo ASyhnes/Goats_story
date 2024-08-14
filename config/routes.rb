@@ -9,11 +9,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :goats do
-    resources :locations, only: [:new, :create]
+    resources :locations, only: [:new, :create, :show]
   end
+
+  resources :locations, only: :index
 
   #route for show pagecontrollerprofil
   get "/profil", to: "pages#profil", as: 'profil'
   # patch "/profil/editprofil", to: "pages#edit_profil", as:'editprofil'
-  
+
 end

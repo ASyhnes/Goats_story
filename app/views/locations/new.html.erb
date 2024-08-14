@@ -3,6 +3,7 @@
 </div>
 
 <div class="form">
+
   <%= simple_form_for [@goat, @location] do |f| %>
    <div class="form-inputs">
       <%= f.input :details, label: 'Commentaires'%>
@@ -14,10 +15,10 @@
                   input_html: { data: { controller: "datepicker" } } %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, 'Ajouter' %>
+    <div class="size-button">
+      <%= f.button :submit, 'Ajouter', class:"form-actions" %>
       <%# <%= link_to "Retour au profil", profil_path %>
     </div>
-
   <% end %>
+
 </div>
