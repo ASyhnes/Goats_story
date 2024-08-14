@@ -1,11 +1,13 @@
-<div class="container">
-
-  <div class="banner">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/v1723632840/70-bedneyimages_krahwa.jpg);">
+  <div class="container">
     <h1>Trouve ta tondeuse écologique</h1> <br>
     <input type="search" placeholder="trouve ta chèvre par ville" id="site-search" name="q" />
     <button class="template-button">Rechercher</button>
   </div>
+</div>
 
+
+<div class="container">
   <div class="cards">
     <div class="row">
       <% @goats.each do |goat| %>
@@ -27,5 +29,4 @@
       <% end %>
     </div>
   </div>
-
 </div>
