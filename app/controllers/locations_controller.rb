@@ -22,7 +22,6 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id])
   end
 
   def destroy
