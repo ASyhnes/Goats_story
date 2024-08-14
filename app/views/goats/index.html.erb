@@ -1,5 +1,10 @@
 <h1 class="display-4 text-center my-4">Chèvre</h1>
 <div class="container">
+  <div class ="my-3 container-fluid shadow p-3 mb-5" style=" height: 350px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   <div class="row">
     <% @goats.each do |goat| %>
       <div class="col-md-4 mb-4">

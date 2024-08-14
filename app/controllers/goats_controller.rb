@@ -1,6 +1,15 @@
 class GoatsController < ApplicationController
   def index
     @goats = Goat.all
+     # The `geocoded` scope filters only flats with coordinates
+    @markers = @goats.geocoded.map do |goat|
+      {
+        lat: goat.latitude,
+        lng: goat.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {goat: goat}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def edit
