@@ -12,8 +12,10 @@ Rails.application.routes.draw do
     resources :locations, only: [:new, :create]
   end
 
+  resources :locations, only: :index
+
   #route for show pagecontrollerprofil
   get "/profil", to: "pages#profil", as: 'profil'
   # patch "/profil/editprofil", to: "pages#edit_profil", as:'editprofil'
-  
+
 end
