@@ -21,6 +21,10 @@ class LocationsController < ApplicationController
     # render "lists/show"
   end
 
+  def show
+  
+  end
+
   def destroy
     @location = Location.find(params[:id])
     @location.destroy
