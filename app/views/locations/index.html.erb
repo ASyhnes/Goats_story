@@ -35,13 +35,14 @@
 <ul>
  <div class="container mt-5">
   <div class="row">
-    <%= current_user.locations.each do |location| %>
+    <% current_user.locations.each do |location| %>
       <div class="col-md-4 mb-4">
           <div class="card shadow-sm">
             <div class="card-body">
-              <h5 class="card-title">demande de location de: <strong><%= location.user.first_name %></strong></h5>
+              <h5 class="card-title">demande de location a: <strong><%= location.goat.user.first_name %></strong></h5>
               <p class="card-text"><strong>Début :</strong> <%= location.start_date %></p>
               <p class="card-text"><strong>Fin :</strong> <%= location.end_date %></p>
+              <p class="card-text"><strong>détails :</strong> <%= location.details %></p>
             </div>
           </div>
         </div>
