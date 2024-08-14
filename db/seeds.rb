@@ -1,6 +1,7 @@
 require "open-uri"
 
 puts "Cleaning DB..."
+Location.destroy_all
 Goat.destroy_all
 User.destroy_all
 
