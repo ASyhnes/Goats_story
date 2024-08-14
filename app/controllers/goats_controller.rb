@@ -2,7 +2,7 @@ class GoatsController < ApplicationController
   def index
     @goats = Goat.all
   end
-  
+
   def edit
     @goat = Goat.find(params[:id])
   end
@@ -25,6 +25,12 @@ class GoatsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @goat = Goat.find(params[:id])
+    @goat.destroy
+    redirect_to profil_path, status: :see_other
   end
 
   private

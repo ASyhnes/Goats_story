@@ -1,14 +1,41 @@
 <div class="container">
-  <h1>votre profil: <br>     <strong><%= current_user.first_name%> <%= current_user.last_name%></strong></h1>
+  <h1>Votre profil: <br>
+    <strong><%= current_user.first_name %> <%= current_user.last_name %></strong>
+  </h1>
   <hr>
-  <h2>Adresse: prevoir carte</h2>
-  <p><%= current_user.address%></p>
+  <h2>Adresse: prévoir carte</h2>
+  <p><%= current_user.address %></p>
   <hr>
   <h2>Description:</h2>
-  <p><%= current_user.description%></p>
+  <p><%= current_user.description %></p>
   <hr>
   <div>
     <%= link_to "Proposer une chèvre", new_goat_path, class: "template-button" %>
     <%= link_to "Mes p'tites chèvres", goats_path, class: "template-button" %>
+  </div>
+  <hr>
+
+  <!-- Section pour afficher les chèvres du current_user -->
+  <h2>Mes chèvres</h2>
+  <div class="row">
+    <% current_user.goats.each do |goat| %>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="width: 18rem;">
+          <% if goat.photos.any? %>
+            <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <img class="card-img-top" src="default_image.jpg" alt="Default image">
+          <% end %>
+          <div class="card-body">
+            <h3 class="card-title"><%= goat.name %></h3>
+            <p class="card-text"><%= goat.race %></p>
+            <p class="card-text">Propriétaire de la chèvre : <%= goat.user.first_name %></p>
+            <%= link_to "Supprimer cette chèvre", goat_path(goat),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "template-button" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
