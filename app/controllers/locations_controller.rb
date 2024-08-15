@@ -26,6 +26,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @location.status = "Validate"
     @location.save!
+    redirect_to locations_path, notice: 'Vous avez bien validé la demande de location'
   end
 
   def show
