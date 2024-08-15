@@ -1,0 +1,23 @@
+.container_goats {
+  display: flex;
+  margin-left: 6%;
+}
+
+.box_card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 66%;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+
+.container_fluid {
+  position: fixed;
+  top: 45px;
+  right: 5px;
+  width: 30%;
+}

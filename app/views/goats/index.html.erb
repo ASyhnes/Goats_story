@@ -1,14 +1,8 @@
-<h1 class="display-4 text-center my-4">Chèvre</h1>
-<div class="container">
-  <div class ="my-3 container-fluid shadow p-3 mb-5" style=" height: 350px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-  <div class="row">
+<div class="container_goats" >
+  <div class="box_card">
+  <h1 class="display-4 text-center my-4">Toutes les chêvres disponnibles</h1>
     <% @goats.each do |goat| %>
-      <div class="col-md-4 mb-4">
-        <div class="card" style="width: 18rem;">
+        <div class="card " style="width: 30%;">
           <% if goat.photos.any? %>
             <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
           <% else %>
@@ -20,8 +14,12 @@
             <p class="card-text">Propriétaire de la chèvre : <%= goat.user.first_name %></p>
             <%= link_to "Affiche cette chèvre", goat, class: "template-button" %>
           </div>
-        </div>
       </div>
     <% end %>
+  </div>
+  <div class ="my-3 container_fluid shadow p-3 mb-5" style=" height: 100%;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
