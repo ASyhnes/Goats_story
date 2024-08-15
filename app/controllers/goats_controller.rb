@@ -23,7 +23,14 @@ class GoatsController < ApplicationController
 
   def show
     @goat = Goat.find(params[:id])
-  end
+    # Crée un marqueur uniquement pour la chèvre actuellement visualisée
+    @markers = [{
+      lat: @goat.latitude,
+      lng: @goat.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: { goat: @goat }),
+      marker_html: render_to_string(partial: "marker")
+    }]
+  end 
 
   def new
     @goat = Goat.new
