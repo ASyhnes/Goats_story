@@ -39,12 +39,15 @@
         <div class="card-body">
           <h3 class="card-title"><%= goat.name %></h3>
           <p class="card-text"><%= goat.race %></p>
-          <p class="card-text">Propriétaire de la chèvre : <%= goat.user.first_name %></p>
           <div class="d-flex justify-content-between">
             <%= link_to "Voir", goat, class: "template-button" %>
-            <%= link_to goat_path(goat), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" }, class: "btn" do %>
-              <i class="bi bi-trash"></i> <!-- Icone poubelle Bootstrap -->
-            <% end %>
+              <% if goat.locations == [] %>
+                <%= link_to goat_path(goat), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" }, class: "btn" do %>
+                  <i class="bi bi-trash"></i> <!-- Icone poubelle Bootstrap -->
+                <% end %>
+              <% else %>
+                <%= link_to "Location en cours", locations_path, class: "template-button" %>
+              <% end %>
           </div>
         </div>
       </div>

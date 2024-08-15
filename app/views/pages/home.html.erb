@@ -1,31 +1,49 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/v1723632840/70-bedneyimages_krahwa.jpg);">
   <div class="container">
     <h1>Trouve ta tondeuse écologique</h1> <br>
-    <input type="search" placeholder="trouve ta chèvre par ville" id="site-search" name="q" />
-    <button class="template-button">Rechercher</button>
+    <%# <input type="search" placeholder="trouve ta chèvre par ville" id="site-search" name="q" /> %>
+    <%# <button class="template-button">Rechercher</button> %>
+    <div class="row justify-content-center">
+  <div class="col-sm-8 my-3 ">
+    <%= form_with url: goats_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Entrez l'adresse ou le nom d'une chêvre"
+        %>
+      <%= submit_tag "Rechercher", class: "template-button" %>
+    <% end %>
+  </div>
+</div>
   </div>
 </div>
 
 <div class="container">
   <div class="cards">
-    <div class="row">
-      <% @goats.each do |goat| %>
-        <div class="col-md-4 mb-4">
-          <div class="card" style="width: 22rem;">
-            <% if goat.photos.any? %>
-              <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
-            <% else %>
-              <img class="card-img-top" src="default_image.jpg" alt="Default image">
-            <% end %>
-            <div class="card-body">
-              <h3 class="card-title"><%= goat.name %></h3>
-              <p class="card-text"><%= goat.race %></p>
-              <p class="card-text owner-text">Propriétaire de la chèvre : <%= goat.user.first_name %></p>
-              <%= link_to "Affiche cette chèvre", goat, class: "template-button" %>
-            </div>
+     <div class="row">
+  <% @goats.each do |goat| %>
+    <div class="col-md-4 mb-4">
+      <%= link_to goat_path(goat), class: "card-link", style: "text-decoration: none; color: inherit;" do %>
+        <div class="card" style="width: 18rem;">
+          <% if goat.photos.any? %>
+            <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill%>
+          <% else %>
+            <img class="card-img-top" src="default_image.jpg" alt="Default image">
+          <% end %>
+          <div class="card-body">
+            <p class="card-text owner-text">
+              <% if goat.user.photo.attached? %>
+                <%= cl_image_tag goat.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+              <% else %>
+                <%= image_tag "default_avatar.png", class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+              <% end %>
+             <%= goat.user.first_name %></p>
+            <p class="card-text"><%= image_tag "https://res.cloudinary.com/drgeetoka/image/upload/v1723470871/goat_4717671-freepik_ghxaxv.png", class: "me-2", style: "width: 35px; height: 35px;" %><%= goat.race %></p>
           </div>
         </div>
       <% end %>
     </div>
+  <% end %>
+</div>
   </div>
 </div>
