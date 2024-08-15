@@ -1,22 +1,13 @@
-<h2>Demande de location</h2>
-
-<div class="form">
-
+<div class="container">
+  <h1>Demande de location</h1>
+  <hr>
   <%= simple_form_for [@goat, @location] do |f| %>
-   <div class="form-inputs">
       <%= f.input :details, label: 'Commentaires'%>
-      <%= f.input :start_date,
-                  as: :string,
-                  input_html: { data: { controller: "datepicker" } } %>
-      <%= f.input :end_date,
-                  as: :string,
-                  input_html: { data: { controller: "datepicker" } } %>
-    </div>
-
-    <div class="size-button">
-      <%= f.button :submit, 'Ajouter', class:"form-actions" %>
-      <%# <%= link_to "Retour au profil", profil_path %>
-    </div>
+      <%= f.input :start_date, as: :string,
+      label: "Date de début", input_html: { data: { controller: "datepicker" } } %>
+      <%= f.input :end_date, as: :string,
+      label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
+      <%= f.button :submit, 'Demande', class:"template-button"%>
   <% end %>
-
+  </div>
 </div>
