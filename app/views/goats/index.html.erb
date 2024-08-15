@@ -6,11 +6,12 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="row">
-    <% @goats.each do |goat| %>
-      <div class="col-md-4 mb-4">
+  <% @goats.each do |goat| %>
+    <div class="col-md-4 mb-4">
+      <%= link_to goat_path(goat), class: "card-link", style: "text-decoration: none; color: inherit;" do %>
         <div class="card" style="width: 18rem;">
           <% if goat.photos.any? %>
-            <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill%>
           <% else %>
             <img class="card-img-top" src="default_image.jpg" alt="Default image">
           <% end %>
@@ -18,10 +19,11 @@
             <h3 class="card-title"><%= goat.name %></h3>
             <p class="card-text"><%= goat.race %></p>
             <p class="card-text">Propriétaire de la chèvre : <%= goat.user.first_name %></p>
-            <%= link_to "Affiche cette chèvre", goat, class: "template-button" %>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 </div>

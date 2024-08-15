@@ -8,6 +8,7 @@ class Goat < ApplicationRecord
   validates :race, presence: true
   validates :description, presence: true, length: { minumum: 10, maximum: 500 }
   validates :photos, presence: true
+  validates :address, presence: true
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

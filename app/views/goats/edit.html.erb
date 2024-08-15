@@ -1,6 +1,18 @@
 <div class="container">
   <h1>votre chévre: <br><strong><%= @goat.name%></strong></h1>
-  <hr>
-  <%= render "goats/form"%>
-</div>
+  <br>
+   <%= simple_form_for(@goat) do |f| %>
+  <!-- [...] -->
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <!-- [...] -->
+  <%= f.input :name %>
+  <%= f.input :race %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <div class="form-actions">
+    <%= link_to "Edit", goat_path, class: "template-button"
+     f.button :submit
+    %>
+  </div>
 
+<% end %>
