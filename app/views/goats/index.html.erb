@@ -5,6 +5,10 @@
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+
+  <span class="mb-3 d-block"><em><%= "Aucun résultat pour votre recherche, consultez la carte pour voir toutes les chêvres disponibles" if @goats.empty? %></em></span>
+  <span class="mb-3 d-block"><em><%= "#{pluralize(@goats.count, "résultat")}" if @goats.count  %></em></span>
+
   <div class="row">
   <% @goats.each do |goat| %>
     <div class="col-md-4 mb-4">

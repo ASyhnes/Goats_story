@@ -1,7 +1,7 @@
 class GoatsController < ApplicationController
   def index
     @goats = Goat.all
-     # The `geocoded` scope filters only flats with coordinates
+    # The `geocoded` scope filters only flats with coordinates
     @markers = @goats.geocoded.map do |goat|
       {
         lat: goat.latitude,
@@ -9,6 +9,11 @@ class GoatsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {goat: goat}),
         marker_html: render_to_string(partial: "marker")
       }
+    end
+
+    if params[:query].present?
+      sql_subquery = "address ILIKE :query OR name ILIKE :query"
+      @goats = @goats.where(sql_subquery, query: "%#{params[:query]}%")
     end
   end
 
