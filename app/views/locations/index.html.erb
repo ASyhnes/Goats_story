@@ -1,6 +1,6 @@
-<h1>location</h1>
+<h1>Vos demandes de Location</h1>
 
-<h2>Nos chèvres a valider</h2>
+<h2>Les demandes de location pour mes chèvres</h2>
 <br>
 
 <ul>
@@ -11,10 +11,17 @@
         <div class="col-md-4 mb-4">
           <div class="card shadow-sm">
             <div class="card-body">
-              <h5 class="card-title">Location pour <strong><%= loc.goat.name %></strong></h5>
-              <p class="card-text"><strong>Loueur :</strong> <%= loc.user.first_name %></p>
-              <p class="card-text"><strong>Début :</strong> <%= loc.start_date %></p>
-              <p class="card-text"><strong>Fin :</strong> <%= loc.end_date %></p>
+              <h5 class="card-title">Demande pour ma chèvre <strong><%= loc.goat.name %></strong></h5>
+              <p class="card-text"><strong>Loueur </strong> <%= loc.user.first_name %></p>
+              <p class="card-text"><strong>Début </strong> <%= loc.start_date %></p>
+              <p class="card-text"><strong>Fin </strong> <%= loc.end_date %></p>
+                <% if loc.status == "pending" %>
+                  <%= link_to 'Valider la location', location_path(loc), data: { turbo_method: :patch } %>
+                  <%# <button type="button" onclick="location.href='@Url.Action("update", "locations")'" /> %>
+                <% else %>
+                  <p class="card-text">Votre demande de location est <strong>validée !</strong></p>
+                <% end %>
+              </p>
             </div>
           </div>
         </div>
@@ -29,7 +36,7 @@
 
 
 <br>
-<h2>location en tant que utilisateurs</h2>
+<h2>Les demandes de location de chèvre effectuées</h2>
 <br>
 
 <ul>
@@ -39,13 +46,16 @@
       <div class="col-md-4 mb-4">
           <div class="card shadow-sm">
             <div class="card-body">
-              <h5 class="card-title">demande de location a: <strong><%= location.goat.user.first_name %></strong></h5>
-              <p class="card-text"><strong>Début :</strong> <%= location.start_date %></p>
-              <p class="card-text"><strong>Fin :</strong> <%= location.end_date %></p>
-              <p class="card-text"><strong>détails :</strong> <%= location.details %></p>
-              <p class="card-text"><strong>Status : décommenter plus tard</strong> </p>
-              <%# <%= location.status %>
-
+              <h5 class="card-title">Demande faite à <strong><%= location.goat.user.first_name %></strong></h5>
+              <p class="card-text"><strong>Début </strong> <%= location.start_date %></p>
+              <p class="card-text"><strong>Fin </strong> <%= location.end_date %></p>
+              <p class="card-text"><strong>Détails </strong> <%= location.details %></p>
+              <% if location.status == "pending" %>
+                  <p class="card-text">Votre demande de location est <strong>en attente.</strong></p>
+              <% else %>
+                  <p class="card-text">Votre demande de location est <strong>validée !</strong></p>
+              <% end %>
+              </p>
             </div>
           </div>
         </div>
