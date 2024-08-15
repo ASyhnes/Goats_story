@@ -36,6 +36,15 @@ class GoatsController < ApplicationController
     end
   end
 
+  def update
+    @goat = Goat.find(params[:id])
+    if @goat.update(goat_params)
+      redirect_to goat_path(@goat)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @goat = Goat.find(params[:id])
     @goat.destroy
@@ -45,6 +54,6 @@ class GoatsController < ApplicationController
   private
 
   def goat_params
-    params.require(:goat).permit(:name, :race, :description, photos: [])
+    params.require(:goat).permit(:name, :race, :description, :address, photos: [])
   end
 end
