@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Ajoute une nouvelle chêvre </h1>
+  <h1>Ajoute une nouvelle chèvre </h1>
   <hr>
   <%= simple_form_for(@goat) do |f| %>
     <%= f.input :name, label: 'Nom de la biquette'%>
@@ -9,9 +9,6 @@
   input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
   wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <div class="form-action">
-      <%= f.submit 'Ajouter' %>
-    </div>
-    <%# <%= link_to "Retour au profil", profil_path %>
+    <%= f.submit 'Ajouter' , class:"template-button"%>
   <% end %>
 </div>

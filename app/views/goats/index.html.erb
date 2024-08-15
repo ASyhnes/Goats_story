@@ -3,7 +3,7 @@
     <h1 class="display-4 text-center my-4">Toutes les chêvres disponibles</h1>
     <span class="mb-3 d-block"><em><%= "Aucun résultat pour votre recherche, consultez la carte pour voir toutes les chêvres disponibles" if @goats.empty? %></em></span>
     <span class="mb-3 d-block"><em><%= "#{pluralize(@goats.count, "résultat")}" if @goats.count  %></em></span>
-    
+
     <% @goats.each do |goat| %>
     <div class="card " style="width: 30%;">
       <% if goat.photos.any? %>
