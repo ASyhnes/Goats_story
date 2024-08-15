@@ -31,8 +31,13 @@
             <img class="card-img-top" src="default_image.jpg" alt="Default image">
           <% end %>
           <div class="card-body">
-            <h3 class="card-title"><%= goat.name %></h3><br>
-            <p class="card-text owner-text"><%= cl_image_tag goat.user.photo.key, class: "avatar", alt: "dropdown menu" %> <%= goat.user.first_name %></p>
+            <p class="card-text owner-text">
+              <% if goat.user.photo.attached? %>
+                <%= cl_image_tag goat.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+              <% else %>
+                <%= image_tag "default_avatar.png", class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+              <% end %>
+             <%= goat.user.first_name %></p>
             <p class="card-text"><%= image_tag "https://res.cloudinary.com/drgeetoka/image/upload/v1723470871/goat_4717671-freepik_ghxaxv.png", class: "me-2", style: "width: 35px; height: 35px;" %><%= goat.race %></p>
           </div>
         </div>
