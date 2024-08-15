@@ -8,24 +8,25 @@
 
 <div class="container">
   <div class="cards">
-    <div class="row">
-      <% @goats.each do |goat| %>
-        <div class="col-md-4 mb-4">
-          <div class="card" style="width: 22rem;">
-            <% if goat.photos.any? %>
-              <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill %>
-            <% else %>
-              <img class="card-img-top" src="default_image.jpg" alt="Default image">
-            <% end %>
-            <div class="card-body">
-              <h3 class="card-title"><%= goat.name %></h3>
-              <p class="card-text"><%= goat.race %></p>
-              <p class="card-text owner-text">Propriétaire de la chèvre : <%= goat.user.first_name %></p>
-              <%= link_to "Affiche cette chèvre", goat, class: "template-button" %>
-            </div>
+     <div class="row">
+  <% @goats.each do |goat| %>
+    <div class="col-md-4 mb-4">
+      <%= link_to goat_path(goat), class: "card-link", style: "text-decoration: none; color: inherit;" do %>
+        <div class="card" style="width: 18rem;">
+          <% if goat.photos.any? %>
+            <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill%>
+          <% else %>
+            <img class="card-img-top" src="default_image.jpg" alt="Default image">
+          <% end %>
+          <div class="card-body">
+            <h3 class="card-title"><%= goat.name %></h3>
+            <p class="card-text"><%= goat.race %></p>
+            <p class="card-text">Propriétaire de la chèvre : <%= goat.user.first_name %></p>
           </div>
         </div>
       <% end %>
     </div>
+  <% end %>
+</div>
   </div>
 </div>
