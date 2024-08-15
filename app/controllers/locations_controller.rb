@@ -35,7 +35,7 @@ class LocationsController < ApplicationController
   def destroy
     @location = Location.find(params[:id])
     @location.destroy
-    redirect_to location_path(@location.user), status: :see_other
+    redirect_to location_path(@location.user), notice: 'Vous avez bien supprimé la demande de location', status: :see_other
   end
 
 private

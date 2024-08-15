@@ -4,41 +4,37 @@
 <br>
 
 <ul>
- <div class="container mt-5">
-  <div class="row">
-    <% current_user.goats.each do |goat| %>
-      <% goat.locations.each do |loc| %>
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title">Demande pour ma chèvre <strong><%= loc.goat.name %></strong></h5>
-              <p class="card-text"><strong>Loueur </strong> <%= loc.user.first_name %></p>
-              <p class="card-text"><strong>Début </strong> <%= loc.start_date %></p>
-              <p class="card-text"><strong>Fin </strong> <%= loc.end_date %></p>
-                <% if loc.status == "pending" %>
-                  <%= link_to 'Valider la location', location_path(loc), data: { turbo_method: :patch } %>
-                  <%# <button type="button" onclick="location.href='@Url.Action("update", "locations")'" /> %>
-                <% else %>
-                  <p class="card-text">Votre demande de location est <strong>validée !</strong></p>
-                <% end %>
-              </p>
+  <div class="container mt-5">
+    <div class="row">
+      <% current_user.goats.each do |goat| %>
+        <% goat.locations.each do |loc| %>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Demande pour ma chèvre <strong><%= loc.goat.name %></strong></h5>
+                <p class="card-text"><strong>Loueur </strong> <%= loc.user.first_name %></p>
+                <p class="card-text"><strong>Début </strong> <%= loc.start_date %></p>
+                <p class="card-text"><strong>Fin </strong> <%= loc.end_date %></p>
+                  <% if loc.status == "pending" %>
+                    <%= link_to 'Valider la demande', location_path(loc), data: { turbo_method: :patch } %>
+                  <% else %>
+                    <p class="card-text">Votre demande de location est <strong>validée !</strong></p>
+                  <% end %>
+                  <br>
+                  <%= link_to 'Supprimer la demande', location_path(loc), data: { turbo_method: :delete } %>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
-
-
 </ul>
-
-
 
 <br>
 <h2>Les demandes de location de chèvre effectuées</h2>
 <br>
-
 <ul>
  <div class="container mt-5">
   <div class="row">
