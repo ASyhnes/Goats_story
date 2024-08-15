@@ -4,20 +4,31 @@
 }
 
 .box_card {
+  background-color: rgb(245, 245, 245);
+  padding: 10px;
+  border: solid 2px rgb(109, 109, 109);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 66%;
 }
 
-.card {
+#card_index {
   margin-bottom: 20px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  border: solid 2px rgb(109, 109, 109);
 }
+
+#card-body_index {
+  padding: 10px;
+}
+
 
 
 .container_fluid {
   position: fixed;
-  top: 45px;
+  top: 50px;
   right: 5px;
   width: 30%;
 }
