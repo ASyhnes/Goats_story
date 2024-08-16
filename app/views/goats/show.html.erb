@@ -57,12 +57,12 @@
 
     <!-- Partie inférieure : Map -->
 
-  <div class="col-md-12 " style="height: 300px;">
+  <div class="col-md-12" style="height: 500px;">
       <div class="card shadow-sm h-100">
         <div class="card-body">
           <h4 class="card-title text-center "><i class="fa-solid fa-location-dot text-warning"></i>  <%= @goat.address %></strong></h4>
           <hr>
-          <div class="my-3 shadow p-3 mb-5" style="height: 80%;"
+          <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
                data-controller="map"
                data-map-markers-value="<%= @markers.to_json %>"
                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
