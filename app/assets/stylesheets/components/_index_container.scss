@@ -4,20 +4,22 @@
 }
 
 .box_card {
-  background-color: rgb(245, 245, 245);
+  background-color: #F4F4F4;
   padding: 10px;
-  border: solid 2px rgb(109, 109, 109);
+  border: solid 1px #C9C9C9;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   width: 66%;
+  border-radius: 4px;
 }
 
 #card_index {
   margin-bottom: 20px;
   color: black;
-  background-color: rgb(255, 255, 255);
-  border: solid 2px rgb(109, 109, 109);
+  background-color: #F4F4F4;
+  border: solid 1px #C9C9C9;
+  border-radius: 4px;
 }
 
 #card-body_index {
