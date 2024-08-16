@@ -5,11 +5,12 @@
       <span class="mb-3 d-block"><em><%= "Aucun résultat pour votre recherche, consultez la carte pour voir toutes les chêvres disponibles" if @goats.empty? %></em></span>
       <span class="mb-3 d-block"><em><%= "#{pluralize(@goats.count, "résultat")}" if @goats.count  %></em></span>
     </div >
+
       <% @goats.each do |goat| %>
         <%= link_to goat_path(goat), style: "text-decoration: none;" do %>
-          <div class="card" id="card_index" >
+          <div class="card" id="card_index" data-controller="image-dynam" data-image-dynam-target="imageContainer">
             <% if goat.photos.any? %>
-              <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill%>
+              <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 250, width: 200, crop: :fill%>
             <% else %>
               <img class="card-img-top" src="default_image.jpg" alt="Default image">
             <% end %>
