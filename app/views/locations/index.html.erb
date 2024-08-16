@@ -1,81 +1,83 @@
-<h1 class="text-center mt-3">Vos demandes de Location</h1>
-<hr>
-<% if current_user.goats.any? %>
-  <div class="container mt-3">
-    <% if @goat_loca %>
-      <h2 class="mb-3">Les demandes de location pour mes chèvres</h2>
-    <% end %>
-    <div class="row">
-      <% current_user.goats.each do |goat| %>
-        <% goat.locations.each do |loc| %>
-          <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">Demandeur <strong><%= loc.user.first_name %></strong>
-                    <% if loc.user.photo.attached? %>
-                      <%= cl_image_tag loc.user.photo.key, class: "avatar", alt: "dropdown menu" %>
-                    <% elsif %>
-                      <% image_tag "logo.png", class: "avatar", alt: "dropdown menu" %>
+<div class="container">
+  <h1 class="text-center mt-3">Vos demandes de Location</h1>
+  <hr>
+  <% if current_user.goats.any? %>
+    <div class="container mt-3">
+      <% if @goat_loca %>
+        <h2 class="mb-3">Les demandes de location pour mes chèvres</h2>
+      <% end %>
+      <div class="row">
+        <% current_user.goats.each do |goat| %>
+          <% goat.locations.each do |loc| %>
+            <div class="col-md-4 mb-4">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">Demandeur <strong><%= loc.user.first_name %></strong>
+                      <% if loc.user.photo.attached? %>
+                        <%= cl_image_tag loc.user.photo.key, class: "avatar", alt: "dropdown menu" %>
+                      <% elsif %>
+                        <% image_tag "logo.png", class: "avatar", alt: "dropdown menu" %>
+                      <% end %>
+                  </h5>
+                  <p>Pour ma chèvre <strong><%= loc.goat.name %></strong></p>
+                  <p class="card-text"><strong><i class="fa-solid fa-play"></i> </strong> <%= loc.start_date %></p>
+                  <p class="card-text"><strong><i class="fa-solid fa-flag-checkered"></i> </strong> <%= loc.end_date %></p>
+                  <p class="card-text"><strong><i class="fa-regular fa-comments"></i> </strong> <%= loc.details %></p>
+                    <hr>
+                    <% if loc.status == "pending" %>
+                      <div class="d-flex justify-content-center">
+                          <%= link_to 'Valider la demande', location_path(loc), data: { turbo_method: :patch }, class: "template-button", id: "btn-index-locations" %>
+                      </div>
+                    <% else %>
+                      <div class="d-flex justify-content-center">
+                          <p class="card-text"><i class="fa-solid fa-circle-check text-center text-success"></i> Demande de location est <strong class="text-success">validée ! </strong></p>
+                      </div>
                     <% end %>
-                </h5>
-                <p>Pour ma chèvre <strong><%= loc.goat.name %></strong></p>
-                <p class="card-text"><strong><i class="fa-solid fa-play"></i> </strong> <%= loc.start_date %></p>
-                <p class="card-text"><strong><i class="fa-solid fa-flag-checkered"></i> </strong> <%= loc.end_date %></p>
-                <p class="card-text"><strong><i class="fa-regular fa-comments"></i> </strong> <%= loc.details %></p>
-                  <hr>
-                  <% if loc.status == "pending" %>
                     <div class="d-flex justify-content-center">
-                        <%= link_to 'Valider la demande', location_path(loc), data: { turbo_method: :patch }, class: "template-button", id: "btn-index-locations" %>
+                      <%= link_to 'Refuser la demande', location_path(loc), data: { turbo_method: :delete }, class: "template-button", id: "btn-index-locations" %>
                     </div>
-                  <% else %>
-                    <div class="d-flex justify-content-center">
-                        <p class="card-text"><i class="fa-solid fa-circle-check"></i> Votre demande de location est <strong>validée ! </strong></p>
-                    </div>
-                  <% end %>
-                  <div class="d-flex justify-content-center">
-                    <%= link_to 'Supprimer la demande', location_path(loc), data: { turbo_method: :delete }, class: "template-button", id: "btn-index-locations" %>
                   </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-  </div>
-<% end %>
+        </div>
+    </div>
+  <% end %>
 
-<% if current_user.locations.any? %>
-  <br><hr>
-  <div class="container mt-3">
-    <h2 class="mb-3">Les demandes de location de chèvre effectuées</h2>
-    <div class="row">
-      <% current_user.locations.each do |location| %>
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title">Demande faite à <strong><%= location.goat.user.first_name %></strong>
-                <% if location.goat.user.photo.attached? %>
-                  <%= cl_image_tag location.goat.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+  <% if current_user.locations.any? %>
+    <br><hr>
+    <div class="container mt-3">
+      <h2 class="mb-3">Les demandes de location de chèvre effectuées</h2>
+      <div class="row">
+        <% current_user.locations.each do |location| %>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Demande faite à <strong><%= location.goat.user.first_name %></strong>
+                  <% if location.goat.user.photo.attached? %>
+                    <%= cl_image_tag location.goat.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+                  <% else %>
+                    <%= image_tag "default_avatar.png", class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+                  <% end %>
+                </h5>
+                <p>Pour la chèvre <strong><%= location.goat.name %></strong></p>
+                <p class="card-text"><strong><i class="fa-solid fa-play"></i> </strong> <%= location.start_date %></p>
+                <p class="card-text"><strong><i class="fa-solid fa-flag-checkered"></i> </strong> <%= location.end_date %></p>
+                <p class="card-text"><strong><i class="fa-regular fa-comments"></i> </strong> <%= location.details %></p>
+                <hr>
+                <% if location.status == "pending" %>
+                    <p class="card-text"><i class="fa-solid fa-hourglass-start"></i> Votre demande de location est <strong>en attente.</strong></p>
                 <% else %>
-                  <%= image_tag "default_avatar.png", class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+                    <p class="card-text"><i class="fa-solid fa-circle-check"></i> Votre demande de location est <strong>validée !</strong></p>
                 <% end %>
-              </h5>
-              <p>Pour la chèvre <strong><%= location.goat.name %></strong></p>
-              <p class="card-text"><strong><i class="fa-solid fa-play"></i> </strong> <%= location.start_date %></p>
-              <p class="card-text"><strong><i class="fa-solid fa-flag-checkered"></i> </strong> <%= location.end_date %></p>
-              <p class="card-text"><strong><i class="fa-regular fa-comments"></i> </strong> <%= location.details %></p>
-              <hr>
-              <% if location.status == "pending" %>
-                  <p class="card-text"><i class="fa-solid fa-hourglass-start"></i> Votre demande de location est <strong>en attente.</strong></p>
-              <% else %>
-                  <p class="card-text"><i class="fa-solid fa-circle-check"></i> Votre demande de location est <strong>validée !</strong></p>
-              <% end %>
-              </p>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
-<hr>
+  <% end %>
+  <hr>
+</div>
