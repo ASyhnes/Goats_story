@@ -12,3 +12,9 @@
 @import "components/index";
 @import "pages/index";
 @import url("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css");
+
+.body-pages {
+  margin-top: 60px;
+  z-index: 0;
+  position: relative;
+}

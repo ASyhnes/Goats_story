@@ -14,7 +14,11 @@
           <li class="nav-item active">
             <%= link_to "Voir toutes les chèvres", goats_path, class: "nav-link" %>
           </li>
-          </li>
+          <% if current_user.locations.any? || @goat_loca = true %>
+            <li class='nav-item active'>
+              <%= link_to "Voir vos locations", locations_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user.photo.attached? %>
