@@ -9,10 +9,23 @@
       <div class="row ">
         <div class="col-md-6">
           <!-- Conteneur pour l'image de la chèvre -->
-          <div class="d-flex justify-content-center align-items-stretch ">
-            <% @goat.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, class: "img-fluid", style: "height: 450px; width: 100%; object-fit: cover; border-radius: 5px;" %>
-            <% end %>
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <% @goat.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%= 'active' if index == 0 %>">
+                  <%= cl_image_tag photo.key, class: "img-fluid d-block w-100", style: "height: 450px; width: 100%; object-fit: cover; border-radius: 5px;" %>
+                </div>
+              <% end %>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
         <div class="col-md-6">
@@ -57,12 +70,12 @@
 
     <!-- Partie inférieure : Map -->
 
-  <div class="col-md-12 " style="height: 300px;">
+  <div class="col-md-12 " style="height: 500px;">
       <div class="card shadow-sm h-100">
         <div class="card-body">
           <h4 class="card-title text-center "><i class="fa-solid fa-location-dot text-warning"></i>  <%= @goat.address %></strong></h4>
           <hr>
-          <div class="my-3 shadow p-3 mb-5" style="height: 80%;"
+          <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
                data-controller="map"
                data-map-markers-value="<%= @markers.to_json %>"
                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
