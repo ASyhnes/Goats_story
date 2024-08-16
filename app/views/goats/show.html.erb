@@ -45,7 +45,7 @@
                 <% if @goat.user != current_user %>
                 <%= link_to "Faire une demande de location", new_goat_location_path(@goat), class: "template-button" %>
                 <% end %>
-                <%= link_to "Voir toute les chèvres", goats_path, class: "template-button" %>
+                <%= link_to "Voir toutes les chèvres", goats_path, class: "template-button" %>
                 <% if @goat.user == current_user %>
                   <%= link_to "Modifier la chèvre", edit_goat_path, class: "template-button" %>
                 <% end %>
