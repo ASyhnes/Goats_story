@@ -43,11 +43,11 @@
             </div>
               <div class=" d-flex justify-content-evenly align-items-end mb-3 ">
                 <% if @goat.user != current_user %>
-                <%= link_to "Faire une demande de location", new_goat_location_path(@goat), class: "template-button" %>
+                <%= link_to "Faire une demande de location", new_goat_location_path(@goat), class: "template-button goat-btn" %>
                 <% end %>
-                <%= link_to "Voir toutes les chèvres", goats_path, class: "template-button" %>
+                <%= link_to "Voir toutes les chèvres", goats_path, class: "template-button goat-btn" %>
                 <% if @goat.user == current_user %>
-                  <%= link_to "Modifier la chèvre", edit_goat_path, class: "template-button" %>
+                  <%= link_to "Modifier la chèvre", edit_goat_path, class: "template-button goat-btn" %>
                 <% end %>
               </div>
           </div>
