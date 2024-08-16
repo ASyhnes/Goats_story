@@ -1,20 +1,16 @@
 <div class="container">
-  <h1>votre chévre: <br><strong><%= @goat.name%></strong></h1>
-  <br>
-   <%= simple_form_for(@goat) do |f| %>
-  <!-- [...] -->
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <!-- [...] -->
-  <%= f.input :name, label: 'Nom de la biquette' %>
-  <%= f.input :race %>
-  <%= f.input :description %>
-  <%= f.input :address, label:"Localisation",
-  input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
-  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
-  <div class="form-actions">
-    <%= link_to "Éditer", goat_path, class: "template-button"
-     f.button :submit
+  <h1><%= @goat.name%></h1>
+  <hr>
+  <%= simple_form_for(@goat) do |f| %>
+    <%= f.input :name, label: 'Nom de la biquette' %>
+    <%= f.input :race %>
+    <%= f.input :description %>
+    <%= f.input :address, label:"Localisation",
+    input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
+    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= link_to goat_path
+     f.button :submit, 'Éditer', class: "template-button"
     %>
-  </div>
-
-<% end %>
+  <% end %>
+</div>
