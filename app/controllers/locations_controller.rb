@@ -8,6 +8,16 @@ class LocationsController < ApplicationController
     @location = Location.new
   end
 
+  def index
+    @goat_loca = false
+    goats = current_user.goats
+    goats.each do |goat|
+      if goat.locations.any?
+        @goat_loca = true
+      end
+    end
+  end
+
   def create
     @location = Location.new(location_params)
     @location.user = current_user
