@@ -2,7 +2,6 @@
   <!-- Profil de l'utilisateur -->
   <div class="card shadow-lg p-4 mb-5 bg-white rounded">
     <div class="card-body">
-      <hr class="my-4">
       <div class="text-center">
         <%= cl_image_tag current_user.photo.key, class: "profil-avatar", alt: "dropdown menu" %>
         <h2><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h2>
