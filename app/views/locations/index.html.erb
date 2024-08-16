@@ -67,9 +67,9 @@
                 <p class="card-text"><strong><i class="fa-regular fa-comments"></i> </strong> <%= location.details %></p>
                 <hr>
                 <% if location.status == "pending" %>
-                    <p class="card-text"><i class="fa-solid fa-hourglass-start"></i> Votre demande de location est <strong>en attente.</strong></p>
+                    <p class="card-text"><i class="fa-solid fa-hourglass-start text-center"></i> Votre demande de location est <strong>en attente.</strong></p>
                 <% else %>
-                    <p class="card-text"><i class="fa-solid fa-circle-check"></i> Votre demande de location est <strong>validée !</strong></p>
+                    <p class="card-text"><i class="fa-solid fa-circle-check text-center text-success"></i> Votre demande de location est <strong class="text-success">validée !</strong></p>
                 <% end %>
                 </p>
               </div>
