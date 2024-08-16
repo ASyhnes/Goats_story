@@ -1,5 +1,4 @@
-<h4><%= goat.name %></h4>
+<h6><%= goat.name %></h6>
 <hr>
-<p><strong> Description </strong></p>
-<p><%= goat.description %></p>
+<p><i class="fa-solid fa-location-dot text-warning"></i> <%= goat.address %></p>
 <%= link_to "Voir plus de détails", goat_path(goat), class: "template-button" %>
