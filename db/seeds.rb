@@ -83,6 +83,19 @@ martin = User.new(
 martin.photo.attach(io: file15, filename: "nes.png", content_type: "image/png")
 martin.save
 
+file16 = URI.open("https://randomuser.me/api/portraits/women/57.jpg")
+martine = User.new(
+  email: "martine@lapine.com",
+  password: "password",
+  description: "Je vis sur un bateau à Marseille avec mes deux chèvres.
+  Vous n'avez pas besoin de 16 gigas de RAM pour commencer à traire votre chèvre.",
+  first_name: "Martine",
+  last_name: "La Pine",
+  address: "Nantes"
+)
+martine.photo.attach(io: file16, filename: "nes.png", content_type: "image/png")
+martine.save
+
 puts "Created #{User.all.length} Users"
 
 puts "Creating goats..."
@@ -141,7 +154,6 @@ goat4 = Goat.new(
 goat4.photos.attach(io: file4, filename: "nes.png", content_type: "image/png")
 goat4.save
 
-file5 = URI.open("https://images.pexels.com/photos/599042/pexels-photo-599042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 goat5 = Goat.new(
   name: "La bête",
   race: "Pyrénées",
@@ -149,7 +161,15 @@ goat5 = Goat.new(
   user: alexis,
   address: "Montluçon"
 )
-goat5.photos.attach(io: file5, filename: "nes.png", content_type: "image/png")
+
+file51 = URI.open("https://images.pexels.com/photos/599042/pexels-photo-599042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+goat5.photos.attach(io: file51, filename: "nes.png", content_type: "image/png")
+file52 = URI.open("https://images.pexels.com/photos/326929/pexels-photo-326929.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+goat5.photos.attach(io: file52, filename: "nes.png", content_type: "image/png")
+file54 = URI.open("https://images.pexels.com/photos/288621/pexels-photo-288621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+goat5.photos.attach(io: file54, filename: "nes.png", content_type: "image/png")
+file55 = URI.open("https://images.pexels.com/photos/65246/goat-in-austria-austria-goat-65246.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+goat5.photos.attach(io: file55, filename: "nes.png", content_type: "image/png")
 goat5.save
 
 puts "Created #{Goat.all.length} Goats"
