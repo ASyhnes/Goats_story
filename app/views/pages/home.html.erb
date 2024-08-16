@@ -16,13 +16,17 @@
     </div>
 </div>
 
-<div class="container">
-  <div class="cards">
+<div class="container ">
+  <div class="cards mt-1">
      <div class="row">
+     <hr class="text-center ">
+    <strong><h2 class="text-center ">Suggestions</h2></strong>
+    <hr class="text-center ">
+    <br>
   <% @goats.each do |goat| %>
     <div class="col-md-4 mb-4">
-      <%= link_to goat_path(goat), class: "card-link", style: "text-decoration: none; color: inherit;" do %>
-        <div class="card" style="width: 18rem;">
+      <%= link_to goat_path(goat), class: "card-link ", style: "text-decoration: none; color: inherit;" do %>
+        <div class="card " style="width: 18rem;">
           <% if goat.photos.any? %>
             <%= cl_image_tag goat.photos.first.key, class: "card-img-top", height: 300, width: 400, crop: :fill%>
           <% else %>
